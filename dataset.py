@@ -77,22 +77,22 @@ def generar_dataset(filas=50000):
     ])
 
 # Generar el dataset
-print("🚀 Generando dataset con nombres de clientes...")
+print("Generando dataset con nombres de clientes...")
 df = generar_dataset(50000)
 
 # Mostrar información del dataset
-print(f"✅ Dataset generado: {df.shape[0]} filas x {df.shape[1]} columnas")
-print(f"📅 Rango de fechas: {df['fecha'].min()} to {df['fecha'].max()}")
-print(f"👥 Usuarios únicos: {df['user_id'].nunique()}")
-print(f"🌎 Países: {df['country'].nunique()}")
+print(f"Dataset generado: {df.shape[0]} filas x {df.shape[1]} columnas")
+print(f"Rango de fechas: {df['fecha'].min()} to {df['fecha'].max()}")
+print(f"Usuarios únicos: {df['user_id'].nunique()}")
+print(f" Países: {df['country'].nunique()}")
 
-print("\n📊 Distribución de eventos:")
+print("\nDistribución de eventos:")
 print(df['evento'].value_counts())
 
-print("\n📱 Distribución de dispositivos:")
+print("\n Distribución de dispositivos:")
 print(df['device'].value_counts())
 
-# 📁 GUARDAR EN CSV
+#  GUARDO EN CSV EL DATASET
 def guardar_dataset(df, nombre_archivo='ecommerce_techshop_clientes.csv'):
     """
     Guarda el dataset en formato CSV con configuración óptima
@@ -110,7 +110,7 @@ def guardar_dataset(df, nombre_archivo='ecommerce_techshop_clientes.csv'):
 # Guardar el dataset
 archivo_csv = guardar_dataset(df)
 
-# 🎯 ANÁLISIS RÁPIDO
+#  ANÁLISIS RÁPIDO
 print("\n" + "="*50)
 print(" ANÁLISIS RÁPIDO DEL DATASET")
 print("="*50)
@@ -128,10 +128,8 @@ print(f" Total visitas: {visitas}")
 print(f"\n Top 5 países por tráfico:")
 print(df['country'].value_counts().head(5))
 
-# 📊 EJEMPLO DE DATOS
+#  EJEMPLO DE DATOS
 print(f"\n Ejemplo de datos de un cliente:")
 cliente_ejemplo = df['user_id'].iloc[0]
 datos_cliente = df[df['user_id'] == cliente_ejemplo]
 print(datos_cliente[['nombre_cliente', 'evento', 'device', 'country', 'fecha']].head(3))
-
-print("\n ¡Dataset listo para analizar en Python y Power BI!")
